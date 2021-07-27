@@ -22,7 +22,7 @@ sites/*/cache
 sites/simpletest
 
 # Ignore drupal core (if not versioning drupal sources)
-core
+web/core
 modules/README.txt
 profiles/README.txt
 sites/README.txt
