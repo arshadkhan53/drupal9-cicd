@@ -1,0 +1,4 @@
+name: Drupal lesson service override
+type: module
+core: 9.x
+description: Implement core service override and alter

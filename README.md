@@ -1,2 +1,2 @@
 # drupal9-cicd
-## It will contain travis, github action and gitlab CI CD script.
+## It will contain travis, github actions and gitlab CI CD script.

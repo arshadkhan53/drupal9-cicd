@@ -1,0 +1,14 @@
+language: php
+php:
+  - 7.4
+
+services:
+  - docker
+
+before_install:
+  - docker run --name drupal-cdci -d drupal:9.2-php7.4-apache-buster
+  - docker exec -it drupal-cdci /bin/bash -c "composer install;"
+
+script:
+  - composer install
+  - vendor/bin/phpcs --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,ym web/modules/custom/
