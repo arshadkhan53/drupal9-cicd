@@ -8,7 +8,7 @@ services:
 before_install:
   - docker run --name drupal-cdci -d drupal:9.2-php7.4-apache-buster
   - docker exec -it drupal-cdci /bin/bash -c "composer install;"
-  - apt-get install nodejs -y
+  - sudo  apt-get install nodejs -y
 
 script:
   - composer install
