@@ -9,13 +9,14 @@ before_install:
   - docker network create drupal-cicd-network
   - docker run --name drupal-cdci --net drupal-cicd-network -d drupal:9.2-php7.4-apache-buster
   - docker run --net drupal-cicd-network --name db-cicd -e MARIADB_DATABASE=drupal -e MARIADB_ROOT_PASSWORD=root -d mariadb:10.2
+  - docker ps
   - docker exec -it drupal-cdci /bin/bash -c "composer install;"
-  - sudo  apt-get install nodejs -y
+  - sudo apt-get install nodejs -y
 
 script:
   - composer install
   - vendor/bin/phpcs --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,ym web/modules/custom/
-  - vendor/bin/drush si --db-url=mysql://root:root@localhost:3306/drupal -y
+#  - vendor/bin/drush si --db-url=mysql://root:root@localhost:3306/drupal -y
   - vendor/bin/drush status
   - node -v
   - npm -v
