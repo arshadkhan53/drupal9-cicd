@@ -8,7 +8,7 @@ services:
 before_install:
   - docker network create drupal-cicd-network
   - docker run --name drupal-cdci --net drupal-cicd-network -d drupal:9.2-php7.4-apache-buster
-  - docker run --net drupal-cicd-network --name db-cicd -e MARIADB_DATABASE=drupal MARIADB_ROOT_PASSWORD=root -d mariadb:10.2
+  - docker run --net drupal-cicd-network --name db-cicd -e MARIADB_DATABASE=drupal -e MARIADB_ROOT_PASSWORD=root -d mariadb:10.2
   - docker exec -it drupal-cdci /bin/bash -c "composer install;"
   - sudo  apt-get install nodejs -y
 
