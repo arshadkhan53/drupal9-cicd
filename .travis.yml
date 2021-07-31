@@ -16,7 +16,7 @@ before_install:
 script:
   - composer install
   - vendor/bin/phpcs --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,ym web/modules/custom/
-  - vendor/bin/drush si --db-url=mysql://root:root@db:3306/drupal -y
+  - vendor/bin/drush si --db-url=mysql://root:root@127.0.0.1:3306/drupal -y
   - vendor/bin/drush status
   - node -v
   - npm -v
