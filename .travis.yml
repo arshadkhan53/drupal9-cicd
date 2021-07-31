@@ -6,7 +6,7 @@ services:
   - docker
 
 before_install:
-  - docker network create drupal-cicd-network
+  - docker network create drupal-cicd-network --subnet=172.18.0.0/16
   - docker run --name drupal-cdci --network=drupal-cicd-network -d drupal:9.2-php7.4-apache-buster
   - docker run --name db --network=drupal-cicd-network --ip=172.18.0.3  -hdbhost -e MARIADB_DATABASE=drupal -e MARIADB_ROOT_PASSWORD=root -d mariadb:10.6
   - docker ps
