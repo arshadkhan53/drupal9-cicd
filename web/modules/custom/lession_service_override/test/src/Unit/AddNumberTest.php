@@ -12,7 +12,7 @@
  * @link     http://localhost:8080
  */
 
-namespace Drupal\Tests\lesson_service_override\Unit;
+namespace Drupal\Tests\lession_service_override\Unit;
 
 use Drupal\Tests\UnitTestCase;
 
