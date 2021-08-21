@@ -36,7 +36,8 @@ class AddNumberTest extends UnitTestCase
      *
      * @return mixed
      */
-    protected function setUp(): void {
+    protected function setUp(): void
+    {
         parent::setUp();
     }
 
