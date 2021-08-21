@@ -38,7 +38,7 @@ class AddNumberTest extends UnitTestCase
      */
     public function testAddNumber()
     {
-        $this->assertEquals((1 + 1), 2);
+        $this->assertArrayHasKey('foo', ['bar' => 'baz']);
     }
 
 }
