@@ -32,6 +32,16 @@ class AddNumberTest extends UnitTestCase
 {
 
     /**
+     * {@inheritdoc}
+     *
+     * @return mixed
+     */
+    protected function setUp()
+    {
+        parent::setUp();
+    }
+
+    /**
      * Tests a banned IP.
      *
      * @return mixed
