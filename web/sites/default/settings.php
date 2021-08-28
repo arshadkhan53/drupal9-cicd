@@ -89,17 +89,6 @@
  * @endcode
  */
 $databases = [];
-$databases['default']['default'] = [
-  'database' => "drupal",
-  'username' => "root",
-  'password' => "root",
-  'host' => 'db',
-  'driver' => "mysql",
-  'port' => '3306',
-  'prefix' => "",
-];
-
-
 /**
  * Customizing database settings.
  *
