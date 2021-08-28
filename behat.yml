@@ -12,6 +12,10 @@ default:
     Behat\MinkExtension:
       goutte: ~
       base_url: http://localhost:8080
+      javascript_session: selenium2
+      selenium2:
+        wd_host: http://chrome:9515
+        capabilities: { 'chrome': {'switches':['--start-maximized','--disable-gpu','--headless']}}
     Drupal\DrupalExtension:
       blackbox: ~
       api_driver: drupal

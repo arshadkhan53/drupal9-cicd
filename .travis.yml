@@ -20,5 +20,6 @@ script:
   - vendor/bin/drush si --db-url=mysql://root:root@172.18.0.3:3306/drupal -y
   - vendor/bin/drush status
   - vendor/bin/phpunit -c web/phpunit.xml web/modules/custom
+  - vendor/bin/behat
   - node -v
   - npm -v
