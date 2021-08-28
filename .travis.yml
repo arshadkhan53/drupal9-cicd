@@ -21,6 +21,6 @@ script:
   - vendor/bin/drush status
   - vendor/bin/drush uli
   - vendor/bin/phpunit -c web/phpunit.xml web/modules/custom
-  # - vendor/bin/behat
+  - vendor/bin/behat
   # - node -v
   # - npm -v
