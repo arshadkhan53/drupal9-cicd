@@ -21,6 +21,6 @@ script:
   - vendor/bin/drush status
   - vendor/bin/drush uli
   - vendor/bin/phpunit -c web/phpunit.xml web/modules/custom
-  - vendor/bin/drush uli --uri=http://localhost:8080
+  - vendor/bin/behat
   - node -v
   - npm -v
