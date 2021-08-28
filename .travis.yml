@@ -19,6 +19,7 @@ script:
   - vendor/bin/phpcs --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,ym web/modules/custom/
   - vendor/bin/drush si --db-url=mysql://root:root@172.18.0.3:3306/drupal -y
   - vendor/bin/drush status
+  - vendor/bin/drush uli
   - vendor/bin/phpunit -c web/phpunit.xml web/modules/custom
   - vendor/bin/behat
   - node -v
