@@ -11,7 +11,7 @@ default:
     DMore\ChromeExtension\Behat\ServiceContainer\ChromeExtension: ~
     Behat\MinkExtension:
       goutte: ~
-      base_url: http://default
+      base_url: http://172.18.0.1
       javascript_session: selenium2
       selenium2:
         wd_host: http://chrome:9515
