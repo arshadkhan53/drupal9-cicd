@@ -22,9 +22,6 @@ script:
   - vendor/bin/drush uli
   - vendor/bin/phpunit -c web/phpunit.xml web/modules/custom
   - docker cp .travis/settings.php drupal-cdci:/var/www/html/sites/default
-  - docker exec -it drupal-cdci /bin/bash
-  - cd /var/www/html
-  - ls -la
-  - vendor/bin/behat
+  - docker exec -it drupal-cdci bash -c 'runtest.sh'
   # - node -v
   # - npm -v
