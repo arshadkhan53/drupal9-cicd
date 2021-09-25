@@ -12,7 +12,7 @@
  * @link     http://localhost:8080
  */
 
-namespace Drupal\Tests\lesson_service_override\Unit;
+namespace Drupal\Tests\lession_service_override\Unit;
 
 use Drupal\Tests\UnitTestCase;
 
@@ -32,13 +32,23 @@ class AddNumberTest extends UnitTestCase
 {
 
     /**
+     * {@inheritdoc}
+     *
+     * @return mixed
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+    }
+
+    /**
      * Tests a banned IP.
      *
      * @return mixed
      */
     public function testAddNumber()
     {
-        $this->assertEquals((1 + 1), 2);
+        $this->assertArrayHasKey('foo', ['foo' => 'baz']);
     }
 
 }

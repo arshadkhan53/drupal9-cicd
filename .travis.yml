@@ -7,18 +7,21 @@ services:
 
 before_install:
   - docker network create drupal-cicd-network --subnet=172.18.0.0/16
-  - docker run --name drupal-cdci --network=drupal-cicd-network -d drupal:9.2-php7.4-apache-buster
-  - docker run --name db --network=drupal-cicd-network --ip=172.18.0.3  -hdbhost -e MARIADB_DATABASE=drupal -e MARIADB_ROOT_PASSWORD=root -d mariadb:10.6
+  - docker run --name drupal-cdci --network=drupal-cicd-network --ip=172.18.0.4 -d -p 80:80 drupal:9.2-php7.4-apache-buster
+  - docker run --name db --network=drupal-cicd-network -p 3306:3306 --ip=172.18.0.3  -hdbhost -e MARIADB_DATABASE=drupal -e MARIADB_ROOT_PASSWORD=root -d mariadb:10.6
   - docker ps
   - docker inspect db
-  - docker exec -it drupal-cdci /bin/bash -c "composer install;"
-  - sudo apt-get install nodejs -y
+  # - docker exec -it drupal-cdci /bin/bash -c "composer install;"
+  # - sudo apt-get install nodejs -y
 
 script:
   - composer install
   - vendor/bin/phpcs --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,ym web/modules/custom/
   - vendor/bin/drush si --db-url=mysql://root:root@172.18.0.3:3306/drupal -y
   - vendor/bin/drush status
+  - vendor/bin/drush uli
   - vendor/bin/phpunit -c web/phpunit.xml web/modules/custom
-  - node -v
-  - npm -v
+  - docker cp .travis/settings.php drupal-cdci:/var/www/html/sites/default
+  - vendor/bin/behat
+  # - node -v
+  # - npm -v
